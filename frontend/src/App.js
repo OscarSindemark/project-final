@@ -7,6 +7,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import user from 'reducers/user';
 import thoughts from 'reducers/thought';
 import { Provider } from 'react-redux';
+import Profile from 'components/Profile';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -20,6 +21,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login/>}></Route>
+          <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/' element={<Main/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>

@@ -15,6 +15,7 @@ const Login = () => {
             navigate("/")
         }
     }, [accessToken]);
+    
     const onFormSubmit = (event) => {
         event.preventDefault()
         const options = {
@@ -22,7 +23,7 @@ const Login = () => {
             headers: {
                 "contentType": "application/json"
             },
-            body: JSON.stringify({username: username, password: setPassword})
+            body: JSON.stringify({username: username, password: password})
         }
         fetch(API_URL(mode), options)
             .then(response => response.json())
