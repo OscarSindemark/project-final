@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/project-mongo";
+const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -147,7 +147,7 @@ const authenticateUser = async (req, res, next) => {
 
 app.get('/thoughts', authenticateUser)
 app.get('/thoughts', async (req, res) => {
-  const thoughts = await Thought.find({}).populate('user');
+  const thoughts = await Thought.find({});
   res.status(200).json({success: true, response: thoughts})
 });
 
