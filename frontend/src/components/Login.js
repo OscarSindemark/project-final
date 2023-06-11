@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "utils/utils";
 import { useNavigate } from "react-router-dom";
+import user from "reducers/user";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
             navigate("/")
         }
     }, [accessToken]);
-    
+
     const onFormSubmit = (event) => {
         event.preventDefault()
         const options = {
@@ -29,6 +30,7 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.success) {
+                    console.log(data)
                     dispatch(user.actions.setAccessToken(data.response.accessToken));
                     dispatch(user.actions.setUsername(data.response.username));
                     dispatch(user.actions.setUserId(data.response.id));

@@ -25,7 +25,7 @@ const Main = () => {
                 "Authorization": accessToken
             }
         }
-        fetch(API_URL(), options)
+        fetch(API_URL("thoughts"), options)
             .then(res => res.json())
             .then(data => {
                 if(data.success){
@@ -46,7 +46,7 @@ const Main = () => {
     }
     return(
         <>
-            <button type="button">LOGOUT</button>
+            <button type="button" onClick={onLogoutButtonClick}>LOGOUT</button>
             {username ? (<h2> these are the thoughts of {username.toUpperCase()} </h2>): ""}
             {thoughtItems.map(item => {
                 return (
