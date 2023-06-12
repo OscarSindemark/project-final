@@ -11,7 +11,7 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
       {ApiThought.map((thought) => {
         return (
           // eslint-disable-next-line no-underscore-dangle
-          <div key={thought._id} className="container-child">
+          <div key={thought._id} className="w-full border-2 rounded-lg my-2">
             <p className="message">{thought.message}</p>
             <div className="btn-container">
               <div className="like-contianer">
