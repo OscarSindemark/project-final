@@ -9,6 +9,7 @@ import thoughts from 'reducers/thought';
 import { Provider } from 'react-redux';
 import Profile from 'pages/Profile';
 import Home from 'pages/Home';
+import Games from 'pages/Games';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -23,6 +24,7 @@ export const App = () => {
         <Routes>
           <Route path='/home' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
+          <Route path='/games' element={<Games/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/' element={<Main/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
