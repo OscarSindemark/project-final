@@ -8,6 +8,7 @@ import user from 'reducers/user';
 import thoughts from 'reducers/thought';
 import { Provider } from 'react-redux';
 import Profile from 'components/Profile';
+import Home from 'pages/Home';
 
 export const App = () => {
   const reducer = combineReducers({
@@ -20,6 +21,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path='/home' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/' element={<Main/>}></Route>
