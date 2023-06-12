@@ -12,7 +12,7 @@ const ThougthInput = ({ newThought, onSend, onNewThought }) => {
         className="mx-auto flex items-center flex-col"
         placeholder="What's on your mind? " />
 
-      <div className="max-length">{140 - newThought.length}  chracters left</div>
+      <div className="max-length">{140 - newThought.length}  characters left</div>
       <button type="submit" className="btn-send" disabled={newThought.length < 6 || newThought > 140}>  Post ❤️</button>
     </form>
   )
