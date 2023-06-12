@@ -12,12 +12,12 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
         return (
           // eslint-disable-next-line no-underscore-dangle
           <div key={thought._id} className="w-full border-2 rounded-lg my-2">
-            <p className="message">{thought.message}</p>
+            <p className="text-white">{thought.message}</p>
             <div className="btn-container">
               <div className="like-contianer">
                 <button
                   type="button"
-                  className="btn-heart"
+                  className="rounded-m"
                   onClick={() => {
                   // eslint-disable-next-line no-underscore-dangle
                     handleOnlikeChange(thought._id)
@@ -28,10 +28,10 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
                   <span aria-label="heart emoji" className="heart-emoji"> ❤️
                   </span>
                 </button>
-                <p className="likes"> x {thought.hearts} </p>
+                <p className="text-white"> x {thought.hearts} </p>
               </div>
               <div className="time">
-                <p className="date">{formatDistance(new Date(thought.creadedAt), Date.now(), { addSuffix: true })} </p>
+                <p className="text-inherit">{formatDistance(new Date(thought.creadedAt), Date.now(), { addSuffix: true })} </p>
               </div>
             </div>
           </div>
