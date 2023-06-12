@@ -7,7 +7,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import user from 'reducers/user';
 import thoughts from 'reducers/thought';
 import { Provider } from 'react-redux';
-import Profile from 'components/Profile';
+import Profile from 'pages/Profile';
 import Home from 'pages/Home';
 
 export const App = () => {
