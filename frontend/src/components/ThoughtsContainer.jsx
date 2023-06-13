@@ -58,7 +58,7 @@ const ThoughtsContainer = () => {
   }
 
   return (
-    <section className="container mx-auto flex items-center flex-col my-3 w-1/3 bg-gray-800">
+    <section className="px-3 flex items-center flex-col py-3 bg-gray-800 w-screen">
       <ThougthInput
         newThought={newThought}
         onNewThought={handleNewThought}

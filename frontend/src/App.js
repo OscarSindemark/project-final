@@ -10,6 +10,10 @@ import { Provider } from 'react-redux';
 import Profile from 'pages/Profile';
 import Home from 'pages/Home';
 import Games from 'pages/Games';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Sidebar from 'components/Sidebar';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 export const App = () => {
   const reducer = combineReducers({
@@ -19,7 +23,10 @@ export const App = () => {
   const store = configureStore({reducer})
 
   return (
+    <main className='bg-black text-white'>
     <Provider store={store}>
+      <Sidebar />
+      <div className='main-layout bg-black text-white'>
       <BrowserRouter>
         <Routes>
           <Route path='/home' element={<Home/>}></Route>
@@ -30,6 +37,8 @@ export const App = () => {
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>
+      </div>
     </Provider>
+    </main>
   );
 }

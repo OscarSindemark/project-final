@@ -7,28 +7,28 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
   }
 
   return (
-    <section className="test">
+    <section className="w-1/3">
       {ApiThought.map((thought) => {
         return (
           // eslint-disable-next-line no-underscore-dangle
-          <div key={thought._id} className="w-full border-2 rounded-lg my-2">
-            <p className="text-white">{thought.message}</p>
-            <div className="btn-container">
-              <div className="like-contianer">
+          <div key={thought._id} className="border-solid my-2 bg-gray-100 shadow-5 rounded-3xl overflow-hidden">
+            <p className="text-black text-center py-3 bg-gray-200 ">{thought.message}</p>
+            <div className="flex justify-between items-center px-2">
+              <div className="flex justify-start items-center">
                 <button
                   type="button"
-                  className="rounded-m"
+                  className="rounded-full h-10 w-10 outline-none"
                   onClick={() => {
                   // eslint-disable-next-line no-underscore-dangle
                     handleOnlikeChange(thought._id)
                   }}
                   style={{
-                    background: thought.hearts >= 1 ? '#F6C6E9' : '#f2f2f2'
+                    background: thought.hearts >= 1 ? '#d4131d' : '#f2f2f2'
                   }}>
-                  <span aria-label="heart emoji" className="heart-emoji"> ❤️
+                  <span className="joystick-emoji"> <i className="bi bi-controller" />
                   </span>
                 </button>
-                <p className="text-white"> x {thought.hearts} </p>
+                <p className="text-black ml-1 flex justify-center"> x {thought.hearts} </p>
               </div>
               <div className="time">
                 <p className="text-inherit">{formatDistance(new Date(thought.creadedAt), Date.now(), { addSuffix: true })} </p>

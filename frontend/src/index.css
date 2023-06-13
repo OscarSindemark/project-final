@@ -15,3 +15,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.post-btn {
+  padding: 1em 2.5em;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.post-btn:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.post-btn:active {
+  transform: translateY(-1px);
+}
+
+.main-layout {
+  position: absolute;
+  top: 0;
+  left: 118px;
+  width: calc(100vw - 118px);
+  min-height: 100vh;
+  padding: 20px 40px;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
