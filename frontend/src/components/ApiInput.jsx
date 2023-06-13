@@ -23,7 +23,7 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
                     handleOnlikeChange(thought._id)
                   }}
                   style={{
-                    background: thought.hearts >= 1 ? '#D0F200' : '#f2f2f2',
+                    background: thought.hearts >= 1 ? '#D0F200' : '#EAEAEA',
                     color: thought.hearts >= 1 ? 'black' : 'black'
                   }}>
                   <span className="joystick-emoji"> <i className="bi bi-controller" />
