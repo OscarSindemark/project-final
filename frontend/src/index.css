@@ -33,9 +33,9 @@ code {
 }
 
 .post-btn:hover {
-  background-color: #23c483;
+  background-color: #D0F200;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
+  color: #071621;
   transform: translateY(-7px);
 }
 
@@ -55,4 +55,24 @@ code {
 .center {
   align-items: center;
   justify-content: center;
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #071621;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0e5175;
 }

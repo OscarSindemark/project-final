@@ -22,7 +22,7 @@ const ThoughtsContainer = () => {
   }, [])
 
   const handleNewThought = (event) => {
-    setNewThought(event.target.value)
+    setNewThought(event.target.value.slice(0, 139))
   }
 
   const onSend = (event) => {
@@ -58,16 +58,18 @@ const ThoughtsContainer = () => {
   }
 
   return (
-    <section className="px-3 flex items-center flex-col py-3 bg-gray-800 w-screen">
+    <div className='grid w-full grid-cols-1 gap-4 md:grid-cols-2'>
       <ThougthInput
         newThought={newThought}
         onNewThought={handleNewThought}
         onSend={onSend} />
+      <div className='max-h-[400px] overflow-scroll'>
       <ApiInput
         ApiThought={ApiThought}
         loading={loading}
         handleOnlikeChange={handleOnlikeChange} />
-    </section>
+      </div>
+    </div>
   )
 }
 export default ThoughtsContainer

@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <>
     {/* <Header /> */}
-    {/* <ThoughtsContainer /> */}
     <div className='flex items-center justify-between mb-8'>
       <div>
         <h1 className='text-[36px] font-bold'>Dashboard</h1>
@@ -20,7 +19,7 @@ const Home = () => {
       </div>
     </div>
 
-    <div className='w-full'>
+    <div className='w-full mb-8'>
       <a href='/games' className='flex items-center gap-1 mb-4 transition hover:translate-x-1'>
         <h3 className='text-[24px] text-primary font-bold'>Games of the week</h3>
         <i className="text-3xl text-primary bi bi-arrow-right-short"></i>
@@ -28,6 +27,10 @@ const Home = () => {
       <div>
         <HomeCarousel />
       </div>
+    </div>
+
+    <div className='w-full'>
+      <ThoughtsContainer />
     </div>
     </>
   )

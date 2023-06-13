@@ -1,20 +1,23 @@
 import React from 'react'
 
 const ThougthInput = ({ newThought, onSend, onNewThought }) => {
+
   return (
-    <form onSubmit={onSend} className="container border-solid my-30 pb-30 mr-30 w-1/3 h-180 bg-gray-100 shadow-5 rounded-3xl flex flex-col justify-items-center items-center my-2 py-2">
-
-      <p className="mx-auto flex items-center flex-col">What are you thinking?</p>
-
-      <textarea
-        value={newThought}
-        onChange={onNewThought}
-        className="mx-auto flex items-center flex-col"
-        placeholder="What's on your mind? " />
-
-      <div className="max-length">{140 - newThought.length}  characters left</div>
-      <button type="submit" className="post-btn" disabled={newThought.length < 6 || newThought > 140}>  Post </button>
-    </form>
+    <div className='px-4 py-3 border-[1px] border-primary h-fit rounded-lg'>
+      <form onSubmit={onSend} className="">
+        <div className='flex items-center justify-between mb-2'>
+          <p className="text-[24px] font-bold text-primary">Whassup bbygirl?</p>
+          <p><span className='text-primary'>{newThought.length}</span>/140</p>
+        </div>
+        <textarea
+          value={newThought.slice(0, 139)}
+          onChange={onNewThought}
+          className="w-full mb-4 bg-black"
+          placeholder="Write something you’d like to share" 
+        />
+        <button type="submit" className="select-none post-btn disabled:opacity-50 disabled:pointer-events-none" disabled={newThought.length < 6 || newThought.length > 140}>Post</button>
+      </form>
+    </div>
   )
 }
 export default ThougthInput;

@@ -1,38 +1,38 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import games from "../../data/games"
+import HomeCarouselCard from "./HomeCarouselCard";
 
-export default class VariableWidth extends HomeCarousel {
+export default class HomeCarousel extends Component {
   render() {
     const settings = {
       className: "slider variable-width",
       dots: true,
       infinite: true,
-      centerMode: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      variableWidth: true
+      variableWidth: true,
+      arrows: false,
+      dots: false,
+      autoplay: true,
+      autoplaySpeed: 5000,
     };
+
+    console.log(games)
     return (
       <div>
         <Slider {...settings}>
-          <div style={{ width: 100 }}>
-            <p>100</p>
-          </div>
-          <div style={{ width: 200 }}>
-            <p>200</p>
-          </div>
-          <div style={{ width: 75 }}>
-            <p>75</p>
-          </div>
-          <div style={{ width: 300 }}>
-            <p>300</p>
-          </div>
-          <div style={{ width: 225 }}>
-            <p>225</p>
-          </div>
-          <div style={{ width: 175 }}>
-            <p>175</p>
-          </div>
+          {games.map((game, index) => (
+            <HomeCarouselCard 
+              img={game.image}
+              key={index}
+              name={game.name}
+              genre={game.genre}
+              free={game.free}
+              platform={game.platform}
+              releaseDate={game.release_date}
+            />
+          ))}
         </Slider>
       </div>
     );
