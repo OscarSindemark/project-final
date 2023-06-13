@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "name": "The Elder Scrolls V: Skyrim",
+        "genre": "RPG",
+        "platform": "Nintendo Switch, PC, PlayStation 3, PlayStation 4, PlayStation 5, Xbox 360, Xbox One, Xbox Series X/S",
+        "free": false,
+        "release_date": "November 11, 2011",
+        "image": "./images/skyrim.jpg"
+    },
+    {
+        "id": 2,
+        "name": "League of Legends",
+        "genre": "MOBA",
+        "platform": "PC",
+        "free": true,
+        "release_date": "October 27, 2009",
+        "image": "./images/LoL.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Legend of Zelda: Tears of the Kingdom",
+        "genre": "Action/Adventure",
+        "platform": "Nintendo Switch",
+        "free": false,
+        "release_date": "May 12, 2023",
+        "image": "./images/zelda.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Call of Duty: Modern Warfare II",
+        "genre": "FPS",
+        "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
+        "free": false,
+        "release_date": "October 28, 2022",
+        "image": "./images/mw2.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Final Fantasy XIV: Online",
+        "genre": "MMORPG",
+        "platform": "PC",
+        "free": false,
+        "release_date": "September 30, 2010",
+        "image": "./images/ffxiv.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Grand Theft Auto V",
+        "genre": "Action/Adventure",
+        "platform": "PC, PlayStation 3, PlayStation 4, PlayStation 5, Xbox 360, Xbox One, Xbox Series X/S",
+        "free": true,
+        "release_date": "September 17, 2013",
+        "image": "./images/gta5.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Minecraft",
+        "genre": "Sandbox",
+        "platform": "Linux, macOS, New Nintendo 3DS, Nintendo Switch, PlayStation 3, PlayStation 4, PlayStation Vita, Wii U, Windows, Xbox 360, Xbox One",
+        "free": false,
+        "release_date": "November 18, 2011",
+        "image": "./images/minecraft.jpg"
+    },
+    {
+        "id": 8,
+        "name": "God of War",
+        "genre": "Action/Adventure",
+        "platform": "PC, PlayStation 4, PlayStation 5",
+        "free": false,
+        "release_date": "April 20, 2018",
+        "image": "./images/GoW.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Marvel's Spider-Man",
+        "genre": "Action/Adventure",
+        "platform": "PC, PlayStation 4, PlayStation 5",
+        "free": false,
+        "release_date": "September 7, 2018",
+        "image": "./images/spiderman.jpg"
+    },
+    {
+        "id": 10,
+        "name": "The Witcher 3: Wild Hunt",
+        "genre": "RPG",
+        "platform": "Nintendo Switch, PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
+        "free": false,
+        "release_date": "May 18, 2015",
+        "image": "./images/witcher3.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Animal Crossing: New Horizons",
+        "genre": "Sandbox",
+        "platform": "Nintendo Switch",
+        "free": false,
+        "release_date": "March 20, 2020",
+        "image": "./images/acnh.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Star Wars: The Old Republic",
+        "genre": "MMORPG",
+        "platform": "PC",
+        "free": true,
+        "release_date": "December 20, 2011",
+        "image": "./images/swtor.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Skate 3",
+        "genre": "Sports",
+        "platform": "PlayStation 3, Xbox 360",
+        "free": false,
+        "release_date": "May 11, 2010",
+        "image": "./images/skate3.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Assassin's Creed: Odyssey",
+        "genre": "Action/Adventure",
+        "platform": "Nintendo Switch, PC, PlayStation 4, Xbox One",
+        "free": false,
+        "release_date": "October 2, 2018",
+        "image": "./images/aco.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Star Wars Jedi: Fallen Order",
+        "genre": "Action/Adventure",
+        "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
+        "free": false,
+        "release_date": "November 10, 2019",
+        "image": "./images/jedi.jpg" 
+    },
+    {
+        "id": 16,
+        "name": "Fallout: New Vegas",
+        "genre": "RPG",
+        "platform": "PC, PS3, Xbox 360",
+        "free": false,
+        "release_date": "October 19, 2010",
+        "image": "./images/fallout.jpg"
+    },
+    {
+        "id": 17,
+        "name": "The Sims 4",
+        "genre": "Sandbox",
+        "platform": "Mac, PC, PlayStation 4, Xbox One",
+        "free": false,
+        "release_date": "September 2, 2014",
+        "image": "./images/sims4.jpg"
+    },
+    {
+        "id": 18,
+        "name": "Fortnite",
+        "genre": "3rd Person Shooter",
+        "platform": "PC",
+        "free": true,
+        "release_date": "July 21, 2017",
+        "image": "./images/fortnite.jpg"
+    },
+    {
+        "id": 19,
+        "name": "Diablo IV",
+        "genre": "Action/Adventure",
+        "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
+        "free": false,
+        "release_date": "June 6, 2023",
+        "image": "./images/diablo4.jpg" 
+    },
+    {
+        "id": 20,
+        "name": "Pokemon: Scarlet and Violet",
+        "genre": "Action/Adventure",
+        "platform": "Nintendo Switch",
+        "free": false,
+        "release_date": "November 18, 2022",
+        "image": "./images/scarletviolet.jpg"
+    }
+]

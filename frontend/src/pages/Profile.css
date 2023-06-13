@@ -1,0 +1,9 @@
+.access {
+    display: flex;
+    border: 1px solid black;
+}
+
+.profile-section {
+    display: flex;
+    border: 1px solid black;
+}
