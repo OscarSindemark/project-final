@@ -1,14 +1,23 @@
 import React from "react";
-import games from "../data/games.json"
+import games from "../data/games"
+import { Link } from "react-router-dom";
+import "./AllTags.css"
 
 
-const GamesList = () => {
-    games.map((gameList) => {
-       return <div key={gameList.id}>
-            {gameList.name}
-        {gameList.image[1]}
-          </div>
-    })
+export const GamesList = () => {
+    return (
+        <section className="game-list">
+        <>
+        {games.map((game, index) => (
+            <Link className="game-card"
+            key={index}
+            to={`/games/${game.id}`}
+             >
+                <p className="game-name">{game.name}</p>
+            <img src={game.image} className="game-img"/>
+            
+         </Link>
+        ))}
+   </> </section>
+   )
 }
-
-export default GamesList
