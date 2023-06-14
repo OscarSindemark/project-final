@@ -11,7 +11,6 @@ const Profile = () => {
 
     return(
         <>
-        <Header />
             <div className="access">
             <figure>{username?.username.charAt(0).toUpperCase()}</figure>
             <span>
