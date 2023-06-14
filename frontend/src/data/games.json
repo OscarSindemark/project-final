@@ -6,7 +6,8 @@
         "platform": "Nintendo Switch, PC, PlayStation 3, PlayStation 4, PlayStation 5, Xbox 360, Xbox One, Xbox Series X/S",
         "free": false,
         "release_date": "November 11, 2011",
-        "image": "./gamesImg/skyrim.jpg"
+        "image": "./gamesImg/skyrim.jpg",
+        "favorite": false
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "platform": "PC",
         "free": true,
         "release_date": "October 27, 2009",
-        "image": "./gamesImg/LoL.jpg"
+        "image": "./gamesImg/LoL.jpg",
+        "favorite": false
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "platform": "Nintendo Switch",
         "free": false,
         "release_date": "May 12, 2023",
-        "image": "./gamesImg/zelda.jpg"
+        "image": "./gamesImg/zelda.jpg",
+        "favorite": false
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
         "free": false,
         "release_date": "October 28, 2022",
-        "image": "./gamesImg/mw2.jpg"
+        "image": "./gamesImg/mw2.jpg",
+        "favorite": false
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "platform": "PC",
         "free": false,
         "release_date": "September 30, 2010",
-        "image": "./gamesImg/ffxiv.jpg"
+        "image": "./gamesImg/ffxiv.jpg",
+        "favorite": false
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "platform": "PC, PlayStation 3, PlayStation 4, PlayStation 5, Xbox 360, Xbox One, Xbox Series X/S",
         "free": true,
         "release_date": "September 17, 2013",
-        "image": "./gamesImg/gta5.jpg"
+        "image": "./gamesImg/gta5.jpg",
+        "favorite": false
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "platform": "Linux, macOS, New Nintendo 3DS, Nintendo Switch, PlayStation 3, PlayStation 4, PlayStation Vita, Wii U, Windows, Xbox 360, Xbox One",
         "free": false,
         "release_date": "November 18, 2011",
-        "image": "./gamesImg/minecraft.jpg"
+        "image": "./gamesImg/minecraft.jpg",
+        "favorite": false
     },
     {
         "id": 8,
@@ -69,7 +76,8 @@
         "platform": "PC, PlayStation 4, PlayStation 5",
         "free": false,
         "release_date": "April 20, 2018",
-        "image": "./gamesImg/GoW.jpg"
+        "image": "./gamesImg/GoW.jpg",
+        "favorite": false
     },
     {
         "id": 9,
@@ -78,7 +86,8 @@
         "platform": "PC, PlayStation 4, PlayStation 5",
         "free": false,
         "release_date": "September 7, 2018",
-        "image": "./gamesImg/spiderman.jpg"
+        "image": "./gamesImg/spiderman.jpg",
+        "favorite": false
     },
     {
         "id": 10,
@@ -87,7 +96,8 @@
         "platform": "Nintendo Switch, PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
         "free": false,
         "release_date": "May 18, 2015",
-        "image": "./gamesImg/witcher3.jpg"
+        "image": "./gamesImg/witcher3.jpg",
+        "favorite": false
     },
     {
         "id": 11,
@@ -96,7 +106,8 @@
         "platform": "Nintendo Switch",
         "free": false,
         "release_date": "March 20, 2020",
-        "image": "./gamesImg/acnh.jpg"
+        "image": "./gamesImg/acnh.jpg",
+        "favorite": false
     },
     {
         "id": 12,
@@ -105,7 +116,8 @@
         "platform": "PC",
         "free": true,
         "release_date": "December 20, 2011",
-        "image": "./gamesImg/swtor.jpg"
+        "image": "./gamesImg/swtor.jpg",
+        "favorite": false
     },
     {
         "id": 13,
@@ -114,7 +126,8 @@
         "platform": "PlayStation 3, Xbox 360",
         "free": false,
         "release_date": "May 11, 2010",
-        "image": "./gamesImg/skate3.jpg"
+        "image": "./gamesImg/skate3.jpg",
+        "favorite": false
     },
     {
         "id": 14,
@@ -123,7 +136,8 @@
         "platform": "Nintendo Switch, PC, PlayStation 4, Xbox One",
         "free": false,
         "release_date": "October 2, 2018",
-        "image": "./gamesImg/aco.jpg"
+        "image": "./gamesImg/aco.jpg",
+        "favorite": false
     },
     {
         "id": 15,
@@ -132,7 +146,8 @@
         "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
         "free": false,
         "release_date": "November 10, 2019",
-        "image": "./gamesImg/jedi.jpg" 
+        "image": "./gamesImg/jedi.jpg",
+        "favorite": false 
     },
     {
         "id": 16,
@@ -141,7 +156,8 @@
         "platform": "PC, PS3, Xbox 360",
         "free": false,
         "release_date": "October 19, 2010",
-        "image": "./gamesImg/fallout.jpg"
+        "image": "./gamesImg/fallout.jpg",
+        "favorite": false
     },
     {
         "id": 17,
@@ -150,7 +166,8 @@
         "platform": "Mac, PC, PlayStation 4, Xbox One",
         "free": false,
         "release_date": "September 2, 2014",
-        "image": "./gamesImg/sims4.jpg"
+        "image": "./gamesImg/sims4.jpg",
+        "favorite": false
     },
     {
         "id": 18,
@@ -159,7 +176,8 @@
         "platform": "PC",
         "free": true,
         "release_date": "July 21, 2017",
-        "image": "./gamesImg/fortnite.jpg"
+        "image": "./gamesImg/fortnite.jpg",
+        "favorite": false
     },
     {
         "id": 19,
@@ -168,7 +186,8 @@
         "platform": "PC, PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S",
         "free": false,
         "release_date": "June 6, 2023",
-        "image": "./gamesImg/diablo4.jpg" 
+        "image": "./gamesImg/diablo4.jpg",
+        "favorite": false
     },
     {
         "id": 20,
@@ -177,6 +196,7 @@
         "platform": "Nintendo Switch",
         "free": false,
         "release_date": "November 18, 2022",
-        "image": "./gamesImg/scarletviolet.jpg"
+        "image": "./gamesImg/scarletviolet.jpg",
+        "favorite": false
     }
 ]

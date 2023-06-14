@@ -22,7 +22,9 @@ const Profile = () => {
                 <PictureUploader />
                 <div className="name">{username}</div>
                 <div className="about-section">placeholder text...</div>
-                <div className="favorite-games">Here's where you can find your favorite games</div>
+                <div className="favorite-games">Here's where you can find your favorite games
+                
+                </div>
             </section></>
 
         
