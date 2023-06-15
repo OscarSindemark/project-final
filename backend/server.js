@@ -23,10 +23,8 @@ app.use(express.json());
 
 
 
-// Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo! Help plz");
-});
+
+
 
 ///// User Schema
 const { Schema } = mongoose;
@@ -34,12 +32,12 @@ const { Schema } = mongoose;
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    require: true,
     unique: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   accessToken: {
     type: String,
@@ -48,6 +46,27 @@ const UserSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', UserSchema);
+//////////AUTHENTICATION/////////////
+const authenticateUser = async (req, res, next) => {
+  const accessToken = req.header("Authorization");
+  try {
+    const user = await User.findOne({accessToken: accessToken})
+    if (user) {
+      next()
+    } else {
+      res.status(401).json({
+        success: false,
+        response: "Please log in"
+      })
+    }
+  } catch (e) {
+    res.status(500).json({
+      success: false,
+      response: e
+    })
+  }
+}
+
 
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
@@ -125,29 +144,16 @@ const ThoughtSchema = new Schema({
 const Thought = mongoose.model('Thought', ThoughtSchema);
 
 // Authenticate the User
-const authenticateUser = async (req, res, next) => {
-  const accessToken = req.header('Authorization');
-  try {
-    const user = await User.findOne({accessToken: accessToken})
-    if (user) {
-      next()
-    } else {
-      res.status(401).json({
-        success: false,
-        response: "Please log in"
-      })
-    }
-  } catch (e) {
-    res.status(500).json({
-      success: false,
-      response: e
-    })
-  }
-}
+
+
+// favorites table: index key on item and ID
+// user table, new table keyed on username and what item is favorited, can pull 
+// Start defining your routes here
+
 
 app.get('/thoughts', authenticateUser)
 app.get('/thoughts', async (req, res) => {
-  const accessToken = req.header('Authorization');
+  const accessToken = req.header("Authorization");
   const user = await User.findOne({accessToken: accessToken})
 
   const thoughts = await Thought.find({user: user._id}).populate('user');
@@ -199,10 +205,10 @@ app.get("/", (req, res) => {
 });
 
 // All happy thoughts MAX 20 
-app.get("/thoughts", async (req, res) => {
+/*{app.get("/thoughts", async (req, res) => {
 
   try {
-    const thoughts = await thoughtList.find().sort({creadedAt: 'desc'}).limit(20).exec()
+    const thoughts = await thoughtList.find().sort({createdAt: 'desc'}).limit(20).exec()
     res.status(200).json(thoughts)
 
   } catch (error) {
@@ -247,7 +253,7 @@ app.post("/thoughts/:id/like", async (req, res) => {
       error: err.errors
     })
    }
-})
+})} */
 
 
 // Start the server
