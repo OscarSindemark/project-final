@@ -2,7 +2,7 @@ import React from 'react'
 
 const HomeCarouselCard = (props) => {
   return (
-    <div className='min-w-[300px] aspect-video mr-2 bg-cover bg-no-repeat rounded-lg px-6 py-3 relative' style={{ backgroundImage: `url(${props.img})` }}>
+    <div className={`${props.class} relative px-6 py-3 mr-2 bg-no-repeat bg-cover rounded-lg  aspect-video`} style={{ backgroundImage: `url(${props.img})` }}>
         <div className='absolute bottom-0 left-0 bg-gradient-to-t from-[#000]/80 to-[#000]/0 w-full h-2/3' />
         <div className='absolute bottom-2 left-4'>
             <h3 className='font-bold text-[18px]'>{props.name}</h3>

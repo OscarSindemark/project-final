@@ -15,6 +15,7 @@ import Sidebar from 'components/Sidebar';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+
 export const App = () => {
   const reducer = combineReducers({
     user: user.reducer,
@@ -23,17 +24,17 @@ export const App = () => {
   const store = configureStore({reducer})
 
   return (
-    <main className='bg-black text-white'>
+    <main className='container min-h-screen mx-auto text-white bg-black'>
     <Provider store={store}>
       <Sidebar />
-      <div className='main-layout bg-black text-white'>
+      <div className='text-white bg-black main-layout'>
       <BrowserRouter>
         <Routes>
-          <Route path='/home' element={<Home/>}></Route>
+          <Route path='/' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/games' element={<Games/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
-          <Route path='/' element={<Main/>}></Route>
+          <Route path='/main' element={<Main/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>

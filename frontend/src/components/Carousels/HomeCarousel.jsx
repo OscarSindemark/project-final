@@ -31,6 +31,7 @@ export default class HomeCarousel extends Component {
               free={game.free}
               platform={game.platform}
               releaseDate={game.release_date}
+              class='min-w-[300px]'
             />
           ))}
         </Slider>

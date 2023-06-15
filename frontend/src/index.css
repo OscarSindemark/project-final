@@ -43,15 +43,6 @@ code {
   transform: translateY(-1px);
 }
 
-.main-layout {
-  position: absolute;
-  top: 0;
-  left: 118px;
-  width: calc(100vw - 118px);
-  min-height: 100vh;
-  padding: 20px 40px;
-}
-
 .center {
   align-items: center;
   justify-content: center;
@@ -75,4 +66,15 @@ code {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #0e5175;
+}
+
+@media screen and (min-width: 640px) {
+  .main-layout {
+    position: absolute;
+    top: 0;
+    left: 118px;
+    width: calc(100vw - 118px);
+    min-height: 100vh;
+    padding: 20px 40px;
+  }
 }

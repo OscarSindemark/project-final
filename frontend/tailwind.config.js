@@ -4,15 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx,html,css}"
   ],
   theme: {
-    screens: {
-      'tablet': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'laptop': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'desktop': '1280px',
-      // => @media (min-width: 1280px) { ... }
+    container: {
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '2rem',
+        xl: '2rem',
+        '2xl': '2rem',
+      },
     },
     extend: {
       colors: {
@@ -21,8 +20,11 @@ module.exports = {
         dark2: '#012832',
         primary: '#D0F200',
         white: '#EAEAEA',
+        transparent: 'transparent'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
