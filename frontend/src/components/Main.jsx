@@ -26,8 +26,8 @@ const Main = () => {
             }
         }
         fetch(API_URL("thoughts"), options)
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 if(data.success){
                     dispatch(thoughts.actions.setError(null));
                     dispatch(thoughts.actions.setItems(data.response));
@@ -36,7 +36,7 @@ const Main = () => {
                     dispatch(thoughts.actions.setItems([]));
                 }
             })
-    }, [accessToken, dispatch])
+    })
 
     const onLogoutButtonClick = () => {
         dispatch(user.actions.setAccessToken(null));

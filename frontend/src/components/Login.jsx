@@ -10,10 +10,10 @@ const Login = () => {
     const [mode, setMode] = useState("login");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const accessToken = useSelector(store => store.user.accessToken)
+    const accessToken = useSelector((store) => store.user.accessToken)
     useEffect(() => {
         if(accessToken) {
-            navigate("/")
+            navigate("/home")
         }
     }, [accessToken]);
 
@@ -22,7 +22,7 @@ const Login = () => {
         const options = {
             method: "POST",
             headers: {
-                "contentType": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({username: username, password: password})
         }
