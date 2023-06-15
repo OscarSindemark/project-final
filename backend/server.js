@@ -19,13 +19,21 @@ app.use(cors());
 app.use(express.json());
 
 
+
+app.get("/", (req, res) => {
+  res.send({
+    Message: "This is an API for Happy Thoughts",
+    Routes: [{
+      "/thoughts": "To GET and POST Happy thoughts",
+      "/thoughts/:id/like" : " Add likes to a thought"
+    }]
+  });
+});
+
+
+
+
 // Add Schemas
-
-
-
-
-
-
 ///// User Schema
 const { Schema } = mongoose;
 
@@ -45,7 +53,8 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
+
 //////////AUTHENTICATION/////////////
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
@@ -124,7 +133,6 @@ try {
 const ThoughtSchema = new Schema({
   message: {
     type: String,
-    required: true,
     trim: true
   },
   createdAt: {
@@ -141,7 +149,7 @@ const ThoughtSchema = new Schema({
   }
 })
 
-const Thought = mongoose.model('Thought', ThoughtSchema);
+const Thought = mongoose.model("Thought", ThoughtSchema);
 
 // Authenticate the User
 
@@ -173,7 +181,7 @@ app.post('/thoughts', async (req, res) => {
 
 // gameThought
 
-const GameThoughts = new mongoose.Schema({
+/*{const GameThoughts = new mongoose.Schema({
   message:{
     type: String, 
     required: true,
@@ -192,17 +200,9 @@ const GameThoughts = new mongoose.Schema({
   },
 })
 
-const thoughtList = mongoose.model("thoughtList", GameThoughts)
+const thoughtList = mongoose.model("thoughtList", GameThoughts)} */
 
-app.get("/", (req, res) => {
-  res.send({
-    Message: "This is an API for Happy Thoughts",
-    Routes: [{
-      "/thoughts": "To GET and POST Happy thoughts",
-      "/thoughts/:id/like" : " Add likes to a thought"
-    }]
-  });
-});
+
 
 // All happy thoughts MAX 20 
 /*{app.get("/thoughts", async (req, res) => {
