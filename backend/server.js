@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/final-project";
+const mongoUrl =
+  process.env.MONGO_URL || "mongodb://127.0.0.1:27017/final-project";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -18,20 +19,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
-
 app.get("/", (req, res) => {
   res.send({
     Message: "This is an API for Happy Thoughts",
-    Routes: [{
-      "/thoughts": "To GET and POST Happy thoughts",
-      "/thoughts/:id/like" : " Add likes to a thought"
-    }]
+    Routes: [
+      {
+        "/thoughts": "To GET and POST Happy thoughts",
+        "/thoughts/:id/like": " Add likes to a thought",
+      },
+    ],
   });
 });
-
-
-
 
 // Add Schemas
 ///// User Schema
@@ -41,16 +39,16 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     require: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   accessToken: {
     type: String,
-    default: () => crypto.randomBytes(128).toString('hex')
-  }
+    default: () => crypto.randomBytes(128).toString("hex"),
+  },
 });
 
 const User = mongoose.model("User", UserSchema);
@@ -59,23 +57,22 @@ const User = mongoose.model("User", UserSchema);
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
   try {
-    const user = await User.findOne({accessToken: accessToken})
+    const user = await User.findOne({ accessToken: accessToken });
     if (user) {
-      next()
+      next();
     } else {
       res.status(401).json({
         success: false,
-        response: "Please log in"
-      })
+        response: "Please log in",
+      });
     }
   } catch (e) {
     res.status(500).json({
       success: false,
-      response: e
-    })
+      response: e,
+    });
   }
-}
-
+};
 
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
@@ -83,49 +80,82 @@ app.post("/register", async (req, res) => {
     const salt = bcrypt.genSaltSync();
     const newUser = await new User({
       username: username,
-      password: bcrypt.hashSync(password, salt)
+      password: bcrypt.hashSync(password, salt),
     }).save();
     res.status(201).json({
       success: true,
       response: {
         username: newUser.username,
         id: newUser._id,
-        accessToken: newUser.accessToken
-      }
-    })
+        accessToken: newUser.accessToken,
+      },
+    });
   } catch (e) {
     res.status(401).json({
       success: false,
-      response: e
-  })
-}
+      response: e,
+    });
+  }
 });
 
 app.post("/login", async (req, res) => {
-const { username, password } = req.body;
-try {
-  const user = await User.findOne({username: username})
-  if (user && bcrypt.compareSync(password, user.password)) {
-    res.status(201).json({
-      success: true,
-      response: {
-        username: user.username,
-        id: user._id,
-        accessToken: user.accessToken
-      }
-    })
-  } else {
-    res.status(400).json({
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username: username });
+    if (user && bcrypt.compareSync(password, user.password)) {
+      res.status(201).json({
+        success: true,
+        response: {
+          username: user.username,
+          id: user._id,
+          accessToken: user.accessToken,
+        },
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        response: "Credentials do not match",
+      });
+    }
+  } catch (e) {
+    res.status(500).json({
       success: false,
-      response: "Credentials do not match"
-    })
+      response: e,
+    });
   }
-} catch (e) {
-  res.status(500).json({
-    success: false,
-    response: e
 });
-};
+
+app.post("/user", async (req, res) => {
+  const {
+    id,
+    accessToken,
+    username /*possibly new */,
+    password /*possibly new */,
+  } = req.body;
+  const user = await User.findOne({ accessToken: accessToken });
+
+  if (user && user._id === id) {
+    try {
+      const updatedData = { username, _id: id, password };
+      newUser = await collection.updateOne({ _id: id }, { $set: updatedData });
+
+      res.status(201).json({
+        success: true,
+        response: {
+          username: newUser.username,
+          id: newUser._id,
+          accessToken: newUser.accessToken,
+        },
+      });
+    } catch (e) {
+      res.status(500).json({
+        success: false,
+        response: e,
+      });
+    }
+  } else {
+    res.status(403);
+  }
 });
 
 //// Thought
@@ -133,50 +163,51 @@ try {
 const ThoughtSchema = new Schema({
   message: {
     type: String,
-    trim: true
+    trim: true,
   },
   createdAt: {
     type: Date,
-    default: () => new Date()
+    default: () => new Date(),
   },
   hearts: {
     type: Number,
-    default: 0
+    default: 0,
   },
   user: {
     type: String,
     require: true,
-  }
-})
+  },
+});
 
 const Thought = mongoose.model("Thought", ThoughtSchema);
 
 // Authenticate the User
 
-
 // favorites table: index key on item and ID
-// user table, new table keyed on username and what item is favorited, can pull 
+// user table, new table keyed on username and what item is favorited, can pull
 // Start defining your routes here
 
-
-app.get('/thoughts', authenticateUser)
-app.get('/thoughts', async (req, res) => {
+app.get("/thoughts", authenticateUser);
+app.get("/thoughts", async (req, res) => {
   const accessToken = req.header("Authorization");
-  const user = await User.findOne({accessToken: accessToken})
+  const user = await User.findOne({ accessToken: accessToken });
 
-  const thoughts = await Thought.find({user: user._id}).populate('user');
-  res.status(200).json({success: true, response: thoughts})
+  const thoughts = await Thought.find({ user: user._id }).populate("user");
+  res.status(200).json({ success: true, response: thoughts });
 });
 
-app.post('/thoughts', authenticateUser);
-app.post('/thoughts', async (req, res) => {
+app.post("/thoughts", authenticateUser);
+app.post("/thoughts", async (req, res) => {
   const { message } = req.body;
 
-  const accessToken = req.header("Authorization")
-  const user = await User.findOne({accessToken: accessToken})
+  const accessToken = req.header("Authorization");
+  const user = await User.findOne({ accessToken: accessToken });
 
-  const thoughts = await new Thought({message: message, user: user._id}).save();
-  res.status(200).json({success: true, response: thoughts})
+  const thoughts = await new Thought({
+    message: message,
+    user: user._id,
+  }).save();
+  res.status(200).json({ success: true, response: thoughts });
 });
 
 // gameThought
@@ -202,9 +233,7 @@ app.post('/thoughts', async (req, res) => {
 
 const thoughtList = mongoose.model("thoughtList", GameThoughts)} */
 
-
-
-// All happy thoughts MAX 20 
+// All happy thoughts MAX 20
 /*{app.get("/thoughts", async (req, res) => {
 
   try {
@@ -254,7 +283,6 @@ app.post("/thoughts/:id/like", async (req, res) => {
     })
    }
 })} */
-
 
 // Start the server
 app.listen(port, () => {
