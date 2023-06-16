@@ -1,5 +1,5 @@
 import ThoughtsContainer from 'components/ThoughtsContainer';
-import React from 'react';
+import React, { useEffect } from 'react';
 import HomeCarousel from 'components/Carousels/HomeCarousel';
 
 const Home = () => {

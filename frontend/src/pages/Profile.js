@@ -64,6 +64,10 @@ const Profile = () => {
                         
                     />
                 </div>
+
+                <div>
+                    <h3>Favorites</h3>
+                </div>
             </div>
 
             

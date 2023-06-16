@@ -11,7 +11,6 @@ export const GamesList = ({ onFavorite }) => {
         {games.map((game, index) => (
             <Link className="game-card"
             key={index}
-            onFavorite={onFavorite}
             to={`/games/${game.id}`}
              >
                 <p className="game-name">{game.name}</p>

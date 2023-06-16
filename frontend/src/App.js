@@ -33,8 +33,8 @@ export const App = () => {
       <div className='text-white bg-black main-layout'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home/>}></Route>
-          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/' element={<Login/>}></Route>
+          <Route path='/home' element={<Home/>}></Route>
           <Route path='/games' element={<Games/>}></Route>
           <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/main' element={<Main/>}></Route>

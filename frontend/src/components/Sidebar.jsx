@@ -7,7 +7,7 @@ const Sidebar = () => {
             <img src='/img/LinkUp-logo.svg' alt='LinkUp' className='w-[70px]' />
         </a>
         <div className='flex items-center justify-center gap-20 sm:flex-col sm:gap-8'>
-            <a href='/' className='w-[55px] aspect-square rounded-lg bg-black hover:bg-black/70 transition flex items-center justify-center'>
+            <a href='/home' className='w-[55px] aspect-square rounded-lg bg-black hover:bg-black/70 transition flex items-center justify-center'>
                 <i className="bi bi-house text-[35px] text-primary"></i>
             </a>
             <a href='/games' className='w-[55px] aspect-square rounded-lg bg-black hover:bg-black/70 transition flex items-center justify-center'>

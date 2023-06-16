@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { API_URL } from "utils/utils";
 import { useNavigate } from "react-router-dom";
 import user from "reducers/user";
+import './Login.css'
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -45,7 +46,7 @@ const Login = () => {
     }
 
     return(
-        <>
+        <section className="login-wrapper">
             <label htmlFor="register">Register</label>
             <input
                 type="radio"
@@ -73,7 +74,7 @@ const Login = () => {
                 onChange={e => setPassword(e.target.value)} />
                 <button type="submit">Submit</button>
             </form>
-        </>
+        </section>
     )
 }
 

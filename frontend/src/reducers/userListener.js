@@ -10,6 +10,8 @@ const listenerMiddleware = createListenerMiddleware();
 
 // Add one or more listener entries that look for specific actions.
 // They may contain any sync or async logic, similar to thunks.
+
+// TO REMOVE **************
 listenerMiddleware.startListening({
   matcher: isAnyOf(UserReducer.actions.startSetUsername),
   effect: async (action, listenerApi) => {
@@ -49,6 +51,7 @@ listenerMiddleware.startListening({
   },
 });
 
+// to remove
 listenerMiddleware.startListening({
   matcher: isAnyOf(UserReducer.actions.startSetPassword),
   effect: async (action, listenerApi) => {
@@ -79,6 +82,49 @@ listenerMiddleware.startListening({
           listenerApi.dispatch(UserReducer.actions.setPassword());
         } else {
           console.error("server could not updated password!");
+        }
+      });
+  },
+});
+
+// hook this up to the save profile button
+listenerMiddleware.startListening({
+  matcher: isAnyOf(UserReducer.actions.startSetProfileInfo),
+  effect: async (action, listenerApi) => {
+    const { payload } = action;
+    const { user } = listenerApi.getState();
+    console.log("Updating User Info!");
+
+    // Can cancel other running instances
+    listenerApi.cancelActiveListeners();
+
+    const body = {
+      accessToken: user.accessToken,
+      username: username,
+    }
+
+    if(payload.password) {
+      body.password = password;
+    }
+
+    // Run async logic
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+
+    fetch(API_URL("user"), options)
+      .then((response) => response.json())
+      .then((responseData) => {
+        if (responseData.success) {
+          console.log("successfully updated user profile!");
+          // update and change all state here.
+          listenerApi.dispatch(UserReducer.actions.finishSetProfileInfo, {} /* make this a user object and update the user store */);
+        } else {
+          console.error("server could not update server profile!");
         }
       });
   },
