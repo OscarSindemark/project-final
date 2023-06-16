@@ -7,7 +7,7 @@ import games from '../data/games';
 const Games = () => {
   return (
     <>
-    <h1 className='game-list-text'>Full Game List</h1>
+    <h1 className='game-list-text text-[36px] font-bold'>Full Game List</h1>
     {/* <GamesList /> */}
     <div className="container grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
     {games.map((game, index) => (

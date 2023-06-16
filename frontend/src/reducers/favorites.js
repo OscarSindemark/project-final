@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+
+
+/*  import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     favorites: []
@@ -11,4 +13,4 @@ const favoriteReducer = (state = initialState, action) => {
         case 'add_favorite':
             return {...state, favorites: [...state.favorites, action.payload] }
     }
-}
+} */
