@@ -99,7 +99,7 @@ app.post("/register", async (req, res) => {
     });
   }
 });
-
+// user
 app.post("/user", async (req, res) => {
   const {
     accessToken, /* always required */
