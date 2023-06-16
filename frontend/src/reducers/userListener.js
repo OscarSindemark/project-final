@@ -11,24 +11,57 @@ const listenerMiddleware = createListenerMiddleware();
 // Add one or more listener entries that look for specific actions.
 // They may contain any sync or async logic, similar to thunks.
 listenerMiddleware.startListening({
-  matcher: isAnyOf(
-    UserReducer.actions.setUsername,
-    UserReducer.actions.setPassword
-  ),
+  matcher: isAnyOf(UserReducer.actions.startSetUsername),
   effect: async (action, listenerApi) => {
-    console.log("Updating User: ", action.payload.username);
+    const { user } = listenerApi.getState();
+
+    console.log("Updating User: ", action.payload);
     // Can cancel other running instances
     listenerApi.cancelActiveListeners();
 
-    let body = "";
-    if (action.payload.username) {
-      body = { username: action.payload.username };
-    }
+    const body = {
+      id: user.userId,
+      username: action.payload,
+      accessToken: user.accessToken,
+    };
 
-    if (action.payload.password) {
-      body = { ...body, password: action.payload.password };
-    }
+    // Run async logic
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
 
+    // username doesn't change until dispatched from here
+    fetch(API_URL("user"), options)
+      .then((response) => response.json())
+      .then((responseData) => {
+        if (responseData.success) {
+          listenerApi.dispatch(
+            UserReducer.actions.setUsername(responseData.response.username)
+          );
+        } else {
+          listenerApi.dispatch(UserReducer.actions.setUsername(null));
+        }
+      });
+  },
+});
+
+listenerMiddleware.startListening({
+  matcher: isAnyOf(UserReducer.actions.startSetPassword),
+  effect: async (action, listenerApi) => {
+    const { user } = listenerApi.getState();
+    console.log("Updating Password!");
+    // Can cancel other running instances
+    listenerApi.cancelActiveListeners();
+
+    const body = {
+      id: user.userId,
+      password: action.payload,
+      accessToken: user.accessToken,
+    };
     // Run async logic
     const options = {
       method: "POST",
@@ -42,11 +75,10 @@ listenerMiddleware.startListening({
       .then((response) => response.json())
       .then((responseData) => {
         if (responseData.success) {
-          listenerApi.dispatch(
-            UserReducer.actions.setUsername(responseData.response.username)
-          );
+          console.log("successfully updated password!");
+          listenerApi.dispatch(UserReducer.actions.setPassword());
         } else {
-          listenerApi.dispatch(UserReducer.actions.setUsername(null));
+          console.error("server could not updated password!");
         }
       });
   },

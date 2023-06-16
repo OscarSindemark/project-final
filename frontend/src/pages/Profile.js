@@ -54,9 +54,9 @@ const Profile = () => {
                         isEditing={isEditing}
                         setIsEditing={setIsEditing}
                         name={username}
-                        setName={(name) => {dispatch(UserReducer.actions.setUsername(name))}}
+                        setName={(name) => {dispatch(UserReducer.actions.startSetUsername(name))}}
                         password={password}
-                        setPassword={(name) => {dispatch(UserReducer.actions.setPassword(name))}}
+                        setPassword={(name) => {dispatch(UserReducer.actions.startSetPassword(name))}}
                         profileImg={profileImg}
                         setProfileImg={setProfileImg}
                         bannerImg={bannerImg}

@@ -98,6 +98,56 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/user", async (req, res) => {
+  const {
+    accessToken, /* always required */
+    username /* possibly new */, //need username OR password
+    password /* possibly new */,
+  } = req.body;
+
+  try {
+    const user = await User.findOne({ accessToken });
+    let newUser;
+    if (username) {
+      newUser = await User.findOneAndUpdate(
+        // findOneAndUpdate only works on primary keys, so we sent in _id instead of accessToken
+        { _id: user._id },
+        { $set: { username: username } },
+        { new: true }
+      );
+    } else if (password) {
+      newUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $set: { password: password } },
+        { new: true }
+      );
+    }
+
+    if (!newUser) {
+      res.status(500).json({
+        success: false,
+        response: "no user returned",
+      });
+      return;
+    }
+
+    res.status(200).json({
+      success: true,
+      response: {
+        username: newUser.username,
+        id: newUser._id,
+        accessToken: newUser.accessToken,
+      },
+    });
+  } catch (e) {
+    console.log("error is:", e);
+    res.status(500).json({
+      success: false,
+      response: e,
+    });
+  }
+});
+
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -122,39 +172,6 @@ app.post("/login", async (req, res) => {
       success: false,
       response: e,
     });
-  }
-});
-
-app.post("/user", async (req, res) => {
-  const {
-    id,
-    accessToken,
-    username /*possibly new */,
-    password /*possibly new */,
-  } = req.body;
-  const user = await User.findOne({ accessToken: accessToken });
-
-  if (user && user._id === id) {
-    try {
-      const updatedData = { username, _id: id, password };
-      newUser = await collection.updateOne({ _id: id }, { $set: updatedData });
-
-      res.status(201).json({
-        success: true,
-        response: {
-          username: newUser.username,
-          id: newUser._id,
-          accessToken: newUser.accessToken,
-        },
-      });
-    } catch (e) {
-      res.status(500).json({
-        success: false,
-        response: e,
-      });
-    }
-  } else {
-    res.status(403);
   }
 });
 
