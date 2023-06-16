@@ -3,7 +3,7 @@ import { GamesList } from '../components/AllTags';
 import HomeCarouselCard from 'components/Carousels/HomeCarouselCard';
 import games from '../data/games';
 
-
+// all games page
 const Games = () => {
   return (
     <>
