@@ -1,22 +1,27 @@
 import React, {useState} from "react";
 import './Profile.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PictureUploader from "components/PictureUploader";
 import Button from '../components/Buttons/Button';
 import ProfileForm from '../components/Forms/ProfileForm';
 
+import UserReducer from "../reducers/user";
+
+
 
 
 const Profile = () => {
+    const dispatch = useDispatch()  
     const { username } = useSelector((state) => state.user)
     const [isEditing, setIsEditing] = useState(false)
-    const [name, setName] = useState('PastaYOLO')
+    //{const [name, setName] = useState('PastaYOLO')}
     const [password, setPassword] = useState('')
     const [profileImg, setProfileImg] = useState(null)
     const [bannerImg, setBannerImg] = useState(null)
 
     return(
         <>
+
             <div className="absolute top-0 left-0 w-full h-[100px] overflow-hidden bg-primary">
                 <img src={bannerImg && bannerImg !== null ? URL.createObjectURL(bannerImg) : "/img/banner-holder.jpeg"} className="object-cover w-full h-full" />
             </div>
@@ -26,8 +31,8 @@ const Profile = () => {
                 </div>
                 <div className="flex justify-between mb-8">
                     <div>
-                        <h2 className="font-bold text-[32px] text-primary">{name}</h2>
-                        <p className="text-white lowercase">linkup.io/{name}</p>
+                        <h2 className="font-bold text-[32px] text-primary">{username}</h2>
+                        <p className="text-white lowercase">linkup.io/{username}</p>
                     </div>
                     {!isEditing ? (
                             <Button 
@@ -48,14 +53,15 @@ const Profile = () => {
                     <ProfileForm 
                         isEditing={isEditing}
                         setIsEditing={setIsEditing}
-                        name={name}
-                        setName={setName}
+                        name={username}
+                        setName={(name) => {dispatch(UserReducer.actions.setUsername(name))}}
                         password={password}
-                        setPassword={setPassword}
+                        setPassword={(name) => {dispatch(UserReducer.actions.setPassword(name))}}
                         profileImg={profileImg}
                         setProfileImg={setProfileImg}
                         bannerImg={bannerImg}
-                        setBannerImg={setBannerImg}
+                        setBannerImg={setBannerImg} 
+                        
                     />
                 </div>
             </div>

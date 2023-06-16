@@ -12,8 +12,9 @@ import Home from 'pages/Home';
 import Games from 'pages/Games';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Sidebar from 'components/Sidebar';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
+import UserListener from 'reducers/userListener'
 
 
 export const App = () => {
@@ -21,7 +22,9 @@ export const App = () => {
     user: user.reducer,
     thoughts: thoughts.reducer
   })
-  const store = configureStore({reducer})
+  const store = configureStore({reducer, 
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(UserListener.middleware)
+  })
 
   return (
     <main className='container min-h-screen mx-auto text-white bg-black'>

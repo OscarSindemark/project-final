@@ -20,6 +20,9 @@ const user = createSlice({
         },
         setError: (store, action) => {
             store.error = action.payload
+        },
+        setPassword: (store, action) => {
+            console.log('we dont set the password in the user store')
         }
     }
 })

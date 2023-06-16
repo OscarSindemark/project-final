@@ -13,7 +13,7 @@ const Login = () => {
     const accessToken = useSelector((store) => store.user.accessToken)
     useEffect(() => {
         if(accessToken) {
-            navigate("/home")
+            navigate("/profile")
         }
     }, [accessToken]);
 

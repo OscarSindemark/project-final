@@ -18,7 +18,8 @@ const Games = () => {
     genre={game.genre}
     free={game.free}
     platform={game.platform}
-    releaseDate={game.release_date} />
+    releaseDate={game.release_date}
+    favorites={game.favorites} />
     ))}
     </div>
     </>
