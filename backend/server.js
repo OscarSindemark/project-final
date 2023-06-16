@@ -21,11 +21,13 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send({
-    Message: "This is an API for Happy Thoughts",
+    Message: "This is the API for Oscar and Giorgio's Final Project",
     Routes: [
       {
-        "/thoughts": "To GET and POST Happy thoughts",
-        "/thoughts/:id/like": " Add likes to a thought",
+        "/thoughts": "To GET and POST game thoughts",
+        "/register": "to POST a new user",
+        "/login": "to POST and login a current user",
+        "/user": "To POST a changed username/password for current user",
       },
     ],
   });
