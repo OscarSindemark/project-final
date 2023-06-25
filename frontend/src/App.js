@@ -22,9 +22,9 @@ export const App = () => {
     user: user.reducer,
     thoughts: thoughts.reducer
   })
-  const store = configureStore({reducer, 
+  /*const store = configureStore({reducer, 
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(UserListener.middleware)
-  })
+  })*/
 
   return (
     <main className='container min-h-screen mx-auto text-white bg-black'>
