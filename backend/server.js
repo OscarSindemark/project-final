@@ -99,12 +99,14 @@ app.post("/register", async (req, res) => {
     });
   }
 });
+
+//
 // user
-app.post("/user", async (req, res) => {
+/*app.post("/user", async (req, res) => {
   const {
-    accessToken, /* always required */
-    username /* possibly new */, //need username OR password
-    password /* possibly new */,
+    accessToken, /* always required
+   username /* possibly new, //need username OR password
+   password /* possibly new ,
   } = req.body;
 
   try {
@@ -148,7 +150,8 @@ app.post("/user", async (req, res) => {
       response: e,
     });
   }
-});
+}); 
+*/
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
