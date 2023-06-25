@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import UserReducer from "./user.js";
 
+
+
+// This is a reducer that was created with my mentor. He only half-went over it, so I'm not exactly sure how it works. But it is for the login process and keeping the user signed in across all pages.
+
 // Create the middleware instance and methods
 const listenerMiddleware = createListenerMiddleware();
 

@@ -1,13 +1,12 @@
 # Project Final
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Oscar and Giorgio's goal was to create a video game social media app, with aspects pulled from Reddit and Twitter. 
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Getting caught up in too many components all at once is where we went wrong. It would have been easier to approach one at a time, but the ideas we were coming up with were so exciting that it just felt right to go with everything.
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Our frontend is currently deployed at: http://genuine-monstera-955923.netlify.app/
+Our backend is at: https://project-final-myhibz6qgq-lz.a.run.app

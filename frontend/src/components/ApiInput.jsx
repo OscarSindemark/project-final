@@ -32,7 +32,7 @@ const ApiInput = ({ ApiThought, loading, handleOnlikeChange }) => {
                 <p className="flex justify-center ml-1"> x {thought.hearts} </p>
               </div>
               <div className="time">
-                <p className="text-inherit">{formatDistance(new Date(thought.creadedAt), Date.now(), { addSuffix: true })} </p>
+                <p className="text-inherit">{formatDistance(new Date(thought.createdAt), Date.now(), { addSuffix: true })} </p>
               </div>
             </div>
           </div>

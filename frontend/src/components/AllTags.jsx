@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./AllTags.css"
 
 
-export const GamesList = ({ onFavorite }) => {
+export const GamesList = () => {
     return (
         <section className="game-list">
         <>
